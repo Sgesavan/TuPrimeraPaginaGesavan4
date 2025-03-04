@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>Buscar Cursos</h2>
+<form method="get">
+    <input type="text" name="q" value="{{ query }}" placeholder="Buscar...">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if resultados %}
+<ul>
+    {% for curso in resultados %}
+    <li>{{ curso.nombre }} - {{ curso.descripcion }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron resultados.</p>
+{% endif %}
+{% endblock %}
